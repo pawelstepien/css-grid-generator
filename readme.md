@@ -1,4 +1,4 @@
-Configurable base for generating CSS grid
+Configurable base for generating column based CSS grid
 
 To adjust number of columns and grid dimensions and margins tweak variables
 
