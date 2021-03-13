@@ -8,3 +8,21 @@
     @content;
   }
 }
+@mixin fraction-columns($col-index) {
+  $fraction: $col-index / $grid-cols;
+
+  &-#{$col-index} {
+    flex: 0 0 100% * $fraction;
+    max-width: 100% * $fraction;
+  }
+}
+@mixin special-columns() {
+  &-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  &-equal {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
