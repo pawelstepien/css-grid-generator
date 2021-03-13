@@ -1,0 +1,66 @@
+.container {
+  width: 100%;
+  max-width: $grid-container-width;
+  margin-right: auto;
+  margin-left: auto;
+
+  &--fluid {
+    max-width: auto;
+  }
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  margin-left: $grid-gutter / -2;
+  margin-right: $grid-gutter / -2;
+}
+.col {
+  padding-left: $grid-gutter / 2;
+  padding-right: $grid-gutter / 2;
+  max-width: 100%;
+
+  &-equal {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+  &-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  
+  @for $col-index from 1 through $grid-cols {
+    $fraction: $col-index / $grid-cols;
+    &-#{$col-index} {
+      flex: 0 0 100% * $fraction;
+      max-width: 100% * $fraction;
+    }
+  }
+  @each $breakpoint-name, $breakpoint-width in $breakpoints {
+    @include media-up($breakpoint-width) {
+      &-#{$breakpoint-name} {
+
+        &-auto {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        &-equal {
+          flex-basis: 0;
+          flex-grow: 1;
+        }
+        
+        @for $col-index from 1 through $grid-cols {
+          $fraction: $col-index / $grid-cols;
+
+          &-#{$col-index} {
+            flex: 0 0 100% * $fraction;
+            max-width: 100% * $fraction;
+          }
+        }
+      }
+    }
+  }
+}
+[class*="col-"] {
+  @extend .col;
+}

@@ -1,0 +1,18 @@
+//Breakpoints
+$xs: 480px;
+$sm: 768px;
+$md: 1024px;
+$lg: 1360px;
+$xl: 1600px;
+$breakpoints: (
+  'xs': $xs,
+  'sm': $sm,
+  'md': $md,
+  'lg': $lg,
+  'xl': $xl
+);
+
+//Grid
+$grid-cols: 12;
+$grid-container-width: 1280px;
+$grid-gutter: 40px;
